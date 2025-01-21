@@ -12,9 +12,6 @@ Config.UseCTO = true
 Config.JerryCanCost = 100
 Config.RefillCost = 100 -- If it is missing half of it capacity, this amount will be divided in half, and so on.
 
--- Use Discord Notification for CTO Framework --
-Config.UseDiscord = true
-
 -- Fuel decor - No need to change this, just leave it.
 Config.FuelDecor = "_FUEL_LEVEL"
 
@@ -43,7 +40,7 @@ Config.Strings = {
 	JerryCanFull = "Jerry can is full"
 }
 
-if not Config.UseCTO or Config.UseESX then
+if not Config.UseCTO then
 	Config.Strings.PurchaseJerryCan = "Press ~g~E ~w~to grab a jerry can"
 	Config.Strings.RefillJerryCan = "Press ~g~E ~w~ to refill the jerry can"
 end
