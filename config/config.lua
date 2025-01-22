@@ -1,14 +1,13 @@
 Config = {}
-
 -- Font for Legacy Fuel HUD
 Config.Font = 6
 Config.BlipSprite = 415
 
--- Are you using CTO Framework or ESX Framework
-Config.UseCTO = true
---Config.UseESX = false
+-- Are you using CTO (Chill Theft Auto) Framework
+Config.UseCTO = true -- false for standalone
 
 -- What should the price of jerry cans be?
+Config.RefuelTime = 1000 -- mSec, Defualt is 500, wouldn't put over 2000 would forever to fuel
 Config.JerryCanCost = 100
 Config.RefillCost = 100 -- If it is missing half of it capacity, this amount will be divided in half, and so on.
 

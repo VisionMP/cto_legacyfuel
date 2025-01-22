@@ -103,10 +103,9 @@ Citizen.CreateThread(function()
 
 		if pumpDistance < 2.5 then
 			isNearPump = pumpObject
-
-			if Config.UseCTO then
+			
 				currentCash = exports["cto_framework"]:getMoney().cash
-			end			
+					
 		else
 			isNearPump = false
 
@@ -143,7 +142,7 @@ AddEventHandler('fuel:startFuelUpTick', function(pumpObject, ped, vehicle)
 	currentFuel = GetVehicleFuelLevel(vehicle)
 
 	while isFueling do
-		Citizen.Wait(500)
+		Citizen.Wait(Config.RefuelTime)
 
 		local oldFuel = DecorGetFloat(vehicle, Config.FuelDecor)
 		local fuelToAdd = math.random(10, 20) / 10.0
@@ -210,9 +209,9 @@ AddEventHandler('fuel:refuelFromPump', function(pumpObject, ped, vehicle)
 			local stringCoords = GetEntityCoords(pumpObject)
 			local extraString = ""
 
-			if Config.UseCTO then
+			
 				extraString = "\nCost: ~g~$" .. Round(currentCost, 1)
-			end
+			
 
 			DrawText3Ds(stringCoords.x, stringCoords.y, stringCoords.z + 1.2, Config.Strings.CancelFuelingPump .. extraString)
 			DrawText3Ds(vehicleCoords.x, vehicleCoords.y, vehicleCoords.z + 0.5, Round(currentFuel, 1) .. "%")
@@ -239,9 +238,9 @@ Citizen.CreateThread(function()
 
 		local ped = PlayerPedId()
 
-		if Config.UseCTO then
+		
 			currentCash = exports["cto_framework"]:getMoney().cash
-		end
+		
 
 		if not isFueling and ((isNearPump and GetEntityHealth(isNearPump) > 0) or (GetSelectedPedWeapon(ped) == 883325847 and not isNearPump)) then
 			if IsPedInAnyVehicle(ped) and GetPedInVehicleSeat(GetVehiclePedIsIn(ped), -1) == ped then

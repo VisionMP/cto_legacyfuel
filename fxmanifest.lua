@@ -8,8 +8,8 @@ server_scripts {
 
 client_scripts {
 	'config/config.lua',
-	'client/fuel_client.lua',
-	'client/scripts/*.lua'
+	'client/fuel_client.lua'
+	--'client/scripts/*.lua'
 }
 
 exports {
